@@ -1,13 +1,13 @@
-# 🎓 Virtual TA: RAG-Powered Knowledge Retrieval System
+# 🤖 Data Analyst Agent
 
 <div align="center">
 
-![Python](https://img.shields.io/badge/Python-3.11%2B-blue?style=for-the-badge&logo=python)
+![Python](https://img.shields.io/badge/Python-3.12%2B-blue?style=for-the-badge&logo=python)
 ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
-![SQLite](https://img.shields.io/badge/SQLite-07405e?style=for-the-badge&logo=sqlite)
-![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai)
+![LangChain](https://img.shields.io/badge/LangChain-121212?style=for-the-badge&logo=chainlink)
+![Google Gemini](https://img.shields.io/badge/Google%20Gemini-8E75B2?style=for-the-badge&logo=google)
 
-**An intelligent Retrieval-Augmented Generation (RAG) system that transforms course materials and forum discussions into an AI-powered Virtual Teaching Assistant**
+**An intelligent autonomous data analysis system that interprets natural language queries and generates executable Python code for data processing, visualization, and statistical analysis**
 
 [Features](#-features) • [Architecture](#-architecture) • [Installation](#-installation) • [Usage](#-usage) • [API Documentation](#-api-documentation)
 
@@ -15,148 +15,195 @@
 
 ---
 
-##  Overview
+## 📊 Overview
 
-This project implements a production-ready **Retrieval-Augmented Generation (RAG) system** designed to answer student queries by intelligently retrieving relevant context from course materials and Discourse forum discussions. The system combines modern web scraping, semantic search, and large language models to provide accurate, contextual answers with proper source attribution.
+This project implements a production-ready **autonomous data analysis agent** that bridges the gap between natural language questions and complex data analysis tasks. The system leverages large language models to automatically generate and execute Python code, providing users with insights, visualizations, and statistical computations without requiring programming knowledge.
 
-###  Key Capabilities
+### 🎯 Key Capabilities
 
-- **Intelligent Data Ingestion**: Automated scraping of course documentation and forum discussions
-- **Semantic Search**: Vector-based similarity search using OpenAI embeddings
-- **Context-Aware Responses**: LLM-powered answer generation with source citations
-- **Multimodal Support**: Handle both text and image-based queries
-- **Production-Ready API**: FastAPI-based REST API with proper error handling and logging
-- **Scalable Architecture**: Modular design supporting large knowledge bases
-
----
-
-##  Features
-
-###  Data Collection & Processing
-
-- **Course Material Scraping**
-  - Automated crawling of Docsify-based course documentation
-  - HTML-to-Markdown conversion for clean text extraction
-  - Metadata preservation (URLs, timestamps, document hierarchy)
-
-- **Discourse Forum Scraping**
-  - Authenticated session management using Playwright
-  - Date-range filtered topic extraction
-  - Automatic HTML cleaning and text normalization
-
-- **Intelligent Text Chunking**
-  - Context-aware chunking with configurable sizes (default: 1000 chars)
-  - Overlap preservation (default: 200 chars) for semantic continuity
-  - Sentence and paragraph boundary detection
-
-###  Retrieval Engine
-
-- **Semantic Search**
-  - OpenAI `text-embedding-3-small` for high-quality embeddings
-  - Cosine similarity-based relevance scoring
-  - Configurable similarity thresholds (default: 0.50)
-
-- **Context Enrichment**
-  - Adjacent chunk retrieval for fuller context
-  - Multi-source aggregation (course docs + forum posts)
-  - Relevance-based ranking and deduplication
-
-- **Multimodal Query Processing**
-  - GPT-4o Vision integration for image understanding
-  - Combined text-image context generation
-
-###  API & Infrastructure
-
-- **FastAPI REST API**
-  - `/query` endpoint for question answering
-  - `/health` endpoint with database statistics
-  - CORS-enabled for frontend integration
-
-- **Robust Error Handling**
-  - Exponential backoff for rate limit handling
-  - Graceful degradation on API failures
-  - Comprehensive logging throughout
-
-- **Performance Optimizations**
-  - SQLite database for efficient storage and retrieval
-  - Batch processing for embeddings generation
-  - Connection pooling and query optimization
+- **Natural Language Processing**: Converts plain English questions into executable Python code
+- **Intelligent Code Generation**: Automatically generates data processing pipelines using Pandas and NumPy
+- **Advanced Visualization**: Creates charts and graphs with Matplotlib and Seaborn
+- **Web Scraping Engine**: Fetches and structures data from URLs (CSV, JSON, HTML tables, Excel)
+- **Robust LLM Integration**: Multi-model fallback system with Google Gemini API
+- **Sandboxed Execution**: Safe code execution in isolated Python environments
+- **Production-Ready API**: FastAPI-based REST API with comprehensive error handling
 
 ---
 
-##  Architecture
+## ✨ Features
+
+### 🧠 Intelligent Code Generation
+
+- **Natural Language Understanding**
+  - Interprets user queries written in conversational language
+  - Generates Python code for data processing, analysis, and visualization
+  - Supports multi-step analytical workflows
+
+- **Dynamic Code Execution**
+  - Sandboxed subprocess execution for security
+  - Automatic resource cleanup and timeout management
+  - Comprehensive error handling with detailed diagnostics
+
+### 🔄 Robust LLM Integration
+
+- **Multi-Model Fallback System**
+  - Hierarchical model selection (gemini-2.5-pro → gemini-2.0-flash-lite)
+  - Automatic fallback on API failures or quota exhaustion
+  - Support for up to 10 API keys with intelligent rotation
+
+- **Quota Management**
+  - Real-time quota monitoring and tracking
+  - Exponential backoff on rate limits
+  - Automatic exclusion of failing keys
+
+### 📁 Advanced Data Processing
+
+- **Multi-Format Support**
+  - CSV, Excel (XLS/XLSX), JSON, Parquet
+  - HTML tables and web content
+  - Image files (PNG, JPG, JPEG) with PIL
+
+- **Intelligent Data Handling**
+  - Automatic schema detection and type inference
+  - Dynamic DataFrame operations with Pandas
+  - Statistical computations with NumPy
+
+### 🌐 Web Scraping Capabilities
+
+- **Custom Scraping Tool**
+  - Converts URLs into structured DataFrames
+  - Content-type detection with intelligent fallback
+  - Support for HTML tables, CSV endpoints, JSON APIs
+
+- **Robust Content Extraction**
+  - BeautifulSoup4 for HTML parsing
+  - Multiple table extraction from single page
+  - Plain text fallback for unstructured content
+
+### 📈 Visualization and Reporting
+
+- **Automatic Chart Generation**
+  - Matplotlib and Seaborn integration
+  - Base64 image encoding for web delivery
+  - Intelligent size optimization (target: <100KB)
+
+- **Image Optimization**
+  - Dynamic DPI adjustment
+  - Format conversion (PNG → WebP)
+  - Quality optimization for bandwidth efficiency
+
+### 🏥 System Health Monitoring
+
+- **Comprehensive Diagnostics**
+  - API key validation and quota checking
+  - Network connectivity tests
+  - System resource monitoring (CPU, memory, disk)
+
+- **Performance Metrics**
+  - Environment verification
+  - Package integrity checks
+  - Database and storage health
+
+---
+
+## 🏗️ Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                     Data Ingestion Layer                    │
-├──────────────────────┬──────────────────────────────────────┤
-│  scrape_course.py    │   scrape_discourse.py                │
-│  (Playwright)        │   (Playwright + Auth)                │
-│  ├─ Docsify Crawler  │   ├─ Forum Scraper                   │
-│  ├─ HTML→Markdown    │   ├─ JSON Export                     │
-│  └─ Metadata Extract │   └─ HTML Cleaning                   │
-└──────────────────────┴──────────────────────────────────────┘
-                              ↓
-┌─────────────────────────────────────────────────────────────┐
-│                   Preprocessing Pipeline                    │
-│                      (preprocess.py)                        │
+│                      Frontend Layer                         │
+│                     (index.html)                            │
 ├─────────────────────────────────────────────────────────────┤
-│  1. Text Chunking (overlapping, context-aware)              │
-│  2. Embedding Generation (OpenAI text-embedding-3-small)    │
-│  3. SQLite Storage (discourse_chunks + markdown_chunks)     │
+│  • Responsive Web Interface                                 │
+│  • Drag-and-Drop File Upload                                │
+│  • Real-time Progress Indicators                            │
+│  • Interactive Visualization Display                        │
 └─────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────┐
-│                    Retrieval & Query API                    │
-│                         (app.py)                            │
+│                    FastAPI Backend (app.py)                 │
 ├─────────────────────────────────────────────────────────────┤
-│  Query Processing                                           │
-│    ├─ Text/Image Embedding Generation                       │
-│    ├─ Cosine Similarity Search                              │
-│    ├─ Context Enrichment (adjacent chunks)                  │
-│    └─ Result Ranking & Deduplication                        │
+│  Request Handler                                            │
+│    ├─ File Upload Processing (multipart/form-data)          │
+│    ├─ Question Parsing and Validation                       │
+│    ├─ Dataset Preprocessing (Pandas)                        │
+│    └─ Error Handling and Response Formatting                │
+└─────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────┐
+│                   LLM Agent Layer (LangChain)               │
+├─────────────────────────────────────────────────────────────┤
+│  LLMWithFallback                                            │
+│    ├─ Model Hierarchy (Pro → Flash → Lite)                  │
+│    ├─ Multi-Key Rotation (up to 10 keys)                    │
+│    ├─ Quota Tracking and Backoff                            │
+│    └─ Error Logging and Diagnostics                         │
 │                                                             │
-│  Answer Generation                                          │
-│    ├─ GPT-4o-mini for Response Generation                   │
-│    ├─ Source Attribution & Citation                         │
-│    └─ Structured JSON Response                              │
+│  Agent Executor                                             │
+│    ├─ Prompt Engineering                                    │
+│    ├─ Tool-Calling Integration                              │
+│    ├─ JSON Response Parsing                                 │
+│    └─ Code Generation Output                                │
+└─────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────┐
+│                 Code Execution Pipeline                     │
+├─────────────────────────────────────────────────────────────┤
+│  Preprocessing                                              │
+│    ├─ DataFrame Pickling (if dataset uploaded)              │
+│    ├─ URL Scraping (if external data needed)                │
+│    └─ Context Injection                                     │
+│                                                             │
+│  Sandboxed Execution                                        │
+│    ├─ Temporary Python File Generation                      │
+│    ├─ Subprocess Isolation (timeout: 240s)                  │
+│    ├─ Plot Helper Injection (plot_to_base64)                │
+│    └─ JSON Result Extraction                                │
+│                                                             │
+│  Cleanup                                                    │
+│    ├─ Temporary File Deletion                               │
+│    ├─ Pickle Cleanup                                        │
+│    └─ Resource Release                                      │
+└─────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────┐
+│                      Response Layer                         │
+├─────────────────────────────────────────────────────────────┤
+│  • Type Casting (number, string, integer)                   │
+│  • Key Mapping (question → output key)                      │
+│  • Base64 Image Encoding                                    │
+│  • JSON Response Formatting                                 │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-###  Database Schema
+### 🔧 Model Hierarchy
 
-**discourse_chunks**
-```sql
-- id (PRIMARY KEY)
-- post_id, topic_id, topic_title
-- post_number, author, created_at, likes
-- chunk_index, content, url
-- embedding (BLOB - JSON serialized vector)
-```
-
-**markdown_chunks**
-```sql
-- id (PRIMARY KEY)
-- doc_title, original_url, downloaded_at
-- chunk_index, content
-- embedding (BLOB - JSON serialized vector)
+```python
+MODEL_HIERARCHY = [
+    "gemini-2.5-pro",        # Highest capability, best reasoning
+    "gemini-2.5-flash",      # Balanced performance and speed
+    "gemini-2.5-flash-lite", # Lightweight, faster responses
+    "gemini-2.0-flash",      # Fast inference
+    "gemini-2.0-flash-lite"  # Fastest, cost-effective
+]
 ```
 
 ---
 
-##  Installation
+## 🚀 Installation
 
 ### Prerequisites
 
-- **Python 3.11+**
+- **Python 3.12+**
 - **pip** (Python package manager)
 - **Git**
+- **Google Gemini API Key** ([Get one here](https://ai.google.dev))
 
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/amnesiac-log/Virtual-TA.git
-cd virtual-ta-rag-system
+git clone https://github.com/yourusername/TDS-PROJECT-2.git
+cd TDS-PROJECT-2
 ```
 
 ### Step 2: Create Virtual Environment
@@ -172,322 +219,606 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### Step 4: Install Playwright Browsers
-
-```bash
-playwright install chromium
-```
-
-### Step 5: Environment Configuration
+### Step 4: Environment Configuration
 
 Create a `.env` file in the project root:
 
 ```env
-API_KEY=your_aipipe_api_key_here
+# Google Gemini API Keys (minimum 1, recommended 2+ for fallback)
+gemini_api_1=AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+gemini_api_2=AIzaSyYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+gemini_api_3=AIzaSyZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+# ... up to gemini_api_10
+
+# Optional Configuration
+LLM_TIMEOUT_SECONDS=240
+PORT=8000
 ```
 
-> **Note**: You can obtain an API key from [aipipe.org](https://aipipe.org) which provides access to OpenAI models.
+> **Note**: If you only have one API key, you can copy it to all variables. However, using at least 2 different keys is recommended for the fallback mechanism to work effectively.
 
 ---
 
-##  Usage
+## 💻 Usage
 
-### 1️⃣ Scrape Course Materials
-
-```bash
-python scrape_course.py
-```
-
-**Output**: Markdown files in `markdown_files/` directory
-
-**Configuration** (in script):
-- `BASE_URL`: Course documentation URL
-- `OUTPUT_DIR`: Destination for scraped content
-
-### 2️⃣ Scrape Discourse Forum
+### 1️⃣ Start the Server
 
 ```bash
-python scrape_discourse.py
+uvicorn app:app --host 0.0.0.0 --port 8000
 ```
 
-**Process**:
-1. First run opens browser for manual Google login
-2. Session is saved in `auth.json`
-3. Subsequent runs use saved authentication
-4. Downloaded threads saved to `downloaded_threads/`
-
-**Configuration** (in script):
-- `CATEGORY_ID`: Discourse category to scrape
-- `DATE_FROM`, `DATE_TO`: Date range filter
-
-### 3️⃣ Preprocess and Generate Embeddings
-
-```bash
-python preprocess.py
-```
-
-**Options**:
-```bash
-python preprocess.py --chunk-size 1000 --chunk-overlap 200 --api-key YOUR_API_KEY
-```
-
-**Process**:
-- Reads markdown and discourse files
-- Chunks content intelligently
-- Generates embeddings via OpenAI API
-- Stores in `knowledge_base.db`
-
-### 4️⃣ Start the API Server
+Or run directly:
 
 ```bash
 python app.py
 ```
 
-Or with uvicorn directly:
+**Server will be available at**: `http://localhost:8000`
 
+### 2️⃣ Access the Web Interface
+
+Open your browser and navigate to:
+
+```
+http://localhost:8000
+```
+
+### 3️⃣ Prepare Your Questions File
+
+Create a `.txt` file with your questions and expected output format:
+
+```text
+1. What is the average sales revenue for Q4?
+2. Which product has the highest sales volume?
+3. Create a bar chart showing monthly sales trends.
+
+Expected Output Format:
+- `avg_revenue`: number
+- `top_product`: string
+- `sales_chart`: string
+```
+
+### 4️⃣ Upload and Analyze
+
+1. Click on "Questions File" and upload your `.txt` file
+2. (Optional) Upload your dataset (CSV, Excel, JSON, Parquet)
+3. Click "🚀 Analyze Data"
+4. Wait for processing (typically 10-60 seconds)
+5. View results with visualizations
+
+---
+
+## 📡 API Documentation
+
+### **POST /api**
+
+Submit questions and optional dataset for AI-powered analysis.
+
+**Request**:
 ```bash
-uvicorn app:app --host 0.0.0.0 --port 5000 --reload
+curl -X POST http://localhost:8000/api \
+  -F "questions_file=@questions.txt" \
+  -F "data_file=@sales_data.csv"
 ```
 
-**Server will be available at**: `http://localhost:5000`
+**Request Body** (multipart/form-data):
+- `questions_file` (required): `.txt` file with questions
+- `data_file` (optional): Dataset (CSV, Excel, JSON, Parquet, images)
+
+**Response**:
+```json
+{
+  "avg_revenue": 1250000.50,
+  "top_product": "Widget Pro",
+  "sales_chart": "iVBORw0KGgoAAAANSUhEUgAAAA..."
+}
+```
+
+**Status Codes**:
+- `200`: Success
+- `400`: Invalid input (missing questions file, unsupported format)
+- `408`: Processing timeout
+- `500`: Server error
 
 ---
 
-##  API Documentation
+### **GET /api**
 
-### **POST /query**
+Health check endpoint to verify server status.
 
-Submit a question and receive an AI-generated answer with sources.
-
-**Request Body**:
-```json
-{
-  "question": "What is the difference between supervised and unsupervised learning?",
-  "image": null  // Optional: Base64-encoded image
-}
+**Request**:
+```bash
+curl http://localhost:8000/api
 ```
 
 **Response**:
 ```json
 {
-  "answer": "Supervised learning uses labeled training data where the correct output is known, while unsupervised learning works with unlabeled data to find patterns and structures...",
-  "links": [
-    {
-      "url": "https://docs.onlinedegree.iitm.ac.in/machine-learning",
-      "text": "Machine learning overview and types"
+  "ok": true,
+  "message": "Server is running. Use POST /api with 'questions_file' and optional 'data_file'."
+}
+```
+
+---
+
+### **GET /summary**
+
+Comprehensive system diagnostics and health monitoring.
+
+**Request**:
+```bash
+curl http://localhost:8000/summary
+```
+
+**With Extended Checks**:
+```bash
+curl "http://localhost:8000/summary?full=true"
+```
+
+**Response**:
+```json
+{
+  "status": "ok",
+  "server_time": "2025-11-27T10:30:45Z",
+  "summary": {
+    "failed_checks": []
+  },
+  "checks": {
+    "env": {
+      "status": "ok",
+      "result": {
+        "GOOGLE_API_KEY": {"present": true, "masked": "AIza...XXXX"},
+        "LLM_TIMEOUT_SECONDS": "240"
+      }
     },
-    {
-      "url": "https://discourse.onlinedegree.iitm.ac.in/t/ml-basics/12345/1",
-      "text": "Discussion on supervised vs unsupervised learning"
+    "system": {
+      "status": "ok",
+      "result": {
+        "platform": "Darwin",
+        "python_version": "3.12.0",
+        "cpu_logical_cores": 8,
+        "memory_total_gb": 16.0,
+        "cwd_free_gb": 245.3
+      }
+    },
+    "network": {
+      "status": "ok",
+      "result": {
+        "Google AI": {"ok": true, "status_code": 200, "latency_ms": 145},
+        "GitHub": {"ok": true, "status_code": 200, "latency_ms": 89}
+      }
+    },
+    "llm_keys_models": {
+      "status": "ok",
+      "result": {
+        "models_tested": [
+          {
+            "model": "gemini-2.5-pro",
+            "attempts": [
+              {
+                "key_mask": "AIza...XXXX",
+                "ok": true,
+                "summary": "pong"
+              }
+            ]
+          }
+        ]
+      }
     }
-  ]
-}
-```
-
-**With Image Query**:
-```python
-import base64
-import requests
-
-# Read and encode image
-with open("diagram.png", "rb") as f:
-    image_base64 = base64.b64encode(f.read()).decode()
-
-response = requests.post("http://localhost:5000/query", json={
-    "question": "Explain this diagram",
-    "image": image_base64
-})
-```
-
-### **GET /health**
-
-Check system health and database statistics.
-
-**Response**:
-```json
-{
-  "status": "healthy",
-  "database": "connected",
-  "api_key_set": true,
-  "discourse_chunks": 1523,
-  "markdown_chunks": 847,
-  "discourse_embeddings": 1523,
-  "markdown_embeddings": 847
+  },
+  "elapsed_seconds": 3.42
 }
 ```
 
 ---
 
-##  Configuration
+### **GET /**
+
+Serves the main web interface (HTML frontend).
+
+**Request**:
+```bash
+curl http://localhost:8000/
+```
+
+**Response**: HTML page with interactive file upload interface
+
+---
+
+## 🐍 Programmatic Usage
+
+### Python Example
+
+```python
+import requests
+import json
+
+# Prepare files
+files = {
+    'questions_file': open('questions.txt', 'rb'),
+    'data_file': open('sales_data.csv', 'rb')
+}
+
+# Send request
+response = requests.post('http://localhost:8000/api', files=files)
+
+# Process results
+if response.status_code == 200:
+    results = response.json()
+    
+    for key, value in results.items():
+        print(f"{key}: {value}")
+        
+        # Handle images
+        if isinstance(value, str) and value.startswith('iVBOR'):
+            import base64
+            with open(f'{key}.png', 'wb') as f:
+                f.write(base64.b64decode(value))
+            print(f"  → Saved as {key}.png")
+else:
+    print(f"Error: {response.status_code}")
+    print(response.json())
+```
+
+### JavaScript Example
+
+```javascript
+const formData = new FormData();
+formData.append('questions_file', questionsFile);
+formData.append('data_file', dataFile);
+
+fetch('http://localhost:8000/api', {
+  method: 'POST',
+  body: formData
+})
+.then(response => response.json())
+.then(data => {
+  console.log('Results:', data);
+  
+  // Display images
+  for (const [key, value] of Object.entries(data)) {
+    if (typeof value === 'string' && value.length > 200) {
+      const img = document.createElement('img');
+      img.src = `data:image/png;base64,${value}`;
+      document.body.appendChild(img);
+    }
+  }
+})
+.catch(error => console.error('Error:', error));
+```
+
+---
+
+## ⚙️ Configuration
+
+### Environment Variables
+
+| Variable | Description | Default | Required |
+|----------|-------------|---------|----------|
+| `gemini_api_1` to `gemini_api_10` | Google Gemini API keys for load balancing | None | ✅ (at least 1) |
+| `LLM_TIMEOUT_SECONDS` | Maximum execution time for LLM operations (seconds) | 240 | ❌ |
+| `PORT` | Application port number | 8000 | ❌ |
 
 ### Retrieval Parameters (app.py)
 
 ```python
-SIMILARITY_THRESHOLD = 0.50    # Minimum cosine similarity for relevance
-MAX_RESULTS = 10               # Maximum number of chunks to retrieve
-MAX_CONTEXT_CHUNKS = 4         # Chunks per source document
+LLM_TIMEOUT_SECONDS = 240      # Maximum execution time
+MAX_RETRIES_PER_KEY = 2        # Retry attempts per API key
+TIMEOUT = 30                   # Individual API call timeout
 ```
 
-### Chunking Parameters (preprocess.py)
+### Execution Parameters
 
 ```python
-CHUNK_SIZE = 1000              # Characters per chunk
-CHUNK_OVERLAP = 200            # Overlap between chunks
-```
+# Code Execution
+EXECUTION_TIMEOUT = 60         # Subprocess timeout (seconds)
 
-### LLM Configuration (app.py)
-
-```python
-# Embedding Model
-model: "text-embedding-3-small"
-
-# Answer Generation Model
-model: "gpt-4o-mini"
-temperature: 0.3               # Lower = more deterministic
+# Image Optimization
+MAX_IMAGE_SIZE = 100_000       # Target image size (bytes)
+DEFAULT_DPI = 100              # Initial plot DPI
+MIN_DPI = 20                   # Minimum DPI for compression
 ```
 
 ---
 
-##  Example Queries
+## 📚 Example Queries
 
-### Text-Only Query
+### Example 1: Statistical Analysis
 
-```python
-import requests
+**questions.txt**:
+```text
+1. Calculate the mean, median, and standard deviation of the 'price' column
+2. Identify outliers in the dataset using IQR method
+3. Create a histogram of price distribution
 
-response = requests.post("http://localhost:5000/query", json={
-    "question": "How do I handle missing data in pandas?"
-})
-
-print(response.json()["answer"])
+Output Format:
+- `statistics`: string
+- `outliers_count`: integer
+- `histogram`: string
 ```
 
-### Multimodal Query
-
-```python
-import base64
-import requests
-
-with open("code_screenshot.png", "rb") as f:
-    img_b64 = base64.b64encode(f.read()).decode()
-
-response = requests.post("http://localhost:5000/query", json={
-    "question": "What's wrong with this code?",
-    "image": img_b64
-})
-
-result = response.json()
-print(f"Answer: {result['answer']}\n")
-print("Sources:")
-for link in result['links']:
-    print(f"  - {link['text']}: {link['url']}")
+**Expected Response**:
+```json
+{
+  "statistics": "Mean: 45.67, Median: 42.30, Std Dev: 12.45",
+  "outliers_count": 7,
+  "histogram": "iVBORw0KGgoAAAANSUhEUgAAAA..."
+}
 ```
 
 ---
 
-##  Performance Considerations
+### Example 2: Web Scraping
 
-### Embedding Generation
-- **Time**: ~1-2 seconds per chunk (API dependent)
-- **Cost**: Text-embedding-3-small is cost-effective
-- **Optimization**: Batch processing with exponential backoff
+**questions.txt**:
+```text
+1. Scrape the population data from https://example.com/demographics
+2. What is the total population across all cities?
+3. Which city has the highest population density?
 
-### Query Performance
-- **Latency**: 2-4 seconds end-to-end
-  - Embedding: ~500ms
-  - Database search: ~100-200ms
-  - LLM generation: 1-3s
-- **Concurrent Requests**: FastAPI handles async operations efficiently
+Output Format:
+- `total_population`: number
+- `highest_density_city`: string
+- `density_value`: number
+```
 
-### Storage
-- **Embeddings**: ~6KB per chunk (1536 dimensions × 4 bytes)
-- **Database Size**: ~50MB per 1000 chunks (including text)
+**No dataset upload needed** - system will automatically scrape the URL.
 
 ---
 
-##  Error Handling
+### Example 3: Correlation Analysis
 
-The system implements robust error handling:
+**questions.txt**:
+```text
+1. Calculate the correlation between 'temperature' and 'sales'
+2. Create a scatter plot showing the relationship
+3. Is the correlation statistically significant at p<0.05?
 
-- **Rate Limiting**: Exponential backoff with configurable retries
-- **API Failures**: Graceful degradation with informative error messages
-- **Database Errors**: Connection pooling and automatic retry
-- **Malformed Input**: Pydantic validation with clear error responses
-
-### Logging
-
-All components use Python's logging module:
-
-```python
-# View logs
-tail -f app.log
-
-# Adjust log level (in code)
-logging.basicConfig(level=logging.INFO)
+Output Format:
+- `correlation_coefficient`: number
+- `scatter_plot`: string
+- `is_significant`: string
 ```
 
 ---
 
-##  Technology Stack
+## 🎨 Technology Stack
 
 | Component | Technology | Purpose |
 |-----------|-----------|---------|
-| **Web Framework** | FastAPI | REST API server |
-| **Web Scraping** | Playwright | Dynamic content scraping |
-| **HTML Processing** | BeautifulSoup4 | HTML parsing and cleaning |
-| **Text Conversion** | html2text, markdownify | Format conversion |
-| **Database** | SQLite | Chunk and embedding storage |
-| **Embeddings** | OpenAI text-embedding-3-small | Semantic vector generation |
-| **LLM** | GPT-4o-mini | Answer generation |
-| **Vision** | GPT-4o Vision | Image understanding |
-| **HTTP Client** | aiohttp | Async API calls |
-| **Data Validation** | Pydantic | Request/response schemas |
-| **Numerical Computing** | NumPy | Vector operations |
+| **Web Framework** | FastAPI | REST API server with async support |
+| **LLM Integration** | LangChain | Agent framework and tool orchestration |
+| **Language Model** | Google Gemini | Code generation and natural language understanding |
+| **Data Processing** | Pandas, NumPy | DataFrame operations and numerical computing |
+| **Visualization** | Matplotlib, Seaborn | Chart generation and statistical plotting |
+| **Web Scraping** | BeautifulSoup4, Requests | HTML parsing and content extraction |
+| **Image Processing** | Pillow (PIL) | Image format conversion and optimization |
+| **Graph Analysis** | NetworkX | Network and graph data structures |
+| **HTTP Server** | Uvicorn | ASGI server for FastAPI |
+| **System Monitoring** | psutil | Resource monitoring (CPU, memory, disk) |
+| **HTTP Client** | httpx | Async HTTP requests for diagnostics |
 | **Environment** | python-dotenv | Configuration management |
+| **File Formats** | openpyxl, pyarrow | Excel and Parquet support |
 
 ---
 
-##  Project Structure
+## 📊 Performance Considerations
+
+### Query Performance
+
+- **Typical Analysis Time**: 10-60 seconds end-to-end
+  - Question parsing: ~500ms
+  - Code generation: 5-15s (LLM dependent)
+  - Code execution: 3-30s (complexity dependent)
+  - Image optimization: 1-5s
+
+- **Timeout Limits**:
+  - LLM operations: 240s (configurable)
+  - Code execution: 60s per subprocess
+  - Individual API calls: 30s
+
+### Resource Usage
+
+- **Memory**: ~200-500MB baseline, +100MB per concurrent request
+- **CPU**: Burst during code execution and image processing
+- **Disk**: Temporary files (~1-10MB per request, auto-cleaned)
+
+### Optimization Tips
+
+- Use multiple API keys to distribute load
+- Reduce dataset size for faster processing
+- Set appropriate timeouts based on query complexity
+- Monitor `/summary` endpoint for system health
+
+---
+
+## 🐳 Deployment
+
+### Docker Deployment
+
+**Build Image**:
+```bash
+docker build -t tds-data-analyst .
+```
+
+**Run Container**:
+```bash
+docker run -d \
+  -p 8000:8000 \
+  --env-file .env \
+  --name tds-agent \
+  tds-data-analyst
+```
+
+**View Logs**:
+```bash
+docker logs -f tds-agent
+```
+
+---
+
+### Railway Deployment
+
+#### Option A: Dashboard
+
+1. Visit [railway.app](https://railway.app) and sign in
+2. Click **New Project** → **Deploy from GitHub**
+3. Select your repository
+4. Add environment variables in **Variables** tab
+5. Railway will auto-deploy from Dockerfile
+
+#### Option B: CLI
+
+```bash
+# Install Railway CLI
+npm install -g @railway/cli
+
+# Login and deploy
+railway login
+railway init
+railway link
+railway up
+```
+
+#### Configure Variables in Railway
+
+Navigate to your project → **Variables** tab and add:
 
 ```
-virtual-ta-rag-system/
-├── app.py                      # FastAPI application
-├── scrape_course.py            # Course material scraper
-├── scrape_discourse.py         # Discourse forum scraper
-├── preprocess.py               # Preprocessing pipeline
+gemini_api_1=your_key_here
+gemini_api_2=your_key_here
+LLM_TIMEOUT_SECONDS=240
+PORT=8000
+```
+
+See [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) for detailed deployment instructions.
+
+---
+
+## 🗂️ Project Structure
+
+```
+TDS-PROJECT-2/
+├── app.py                      # FastAPI application and core logic
+│   ├── LLMWithFallback         # Multi-model/multi-key LLM wrapper
+│   ├── Agent Setup             # LangChain agent configuration
+│   ├── API Routes              # /api, /summary, /health endpoints
+│   └── Diagnostics             # System health monitoring
+│
+├── index.html                  # Frontend web interface
+│   ├── File Upload UI          # Drag-and-drop interface
+│   ├── Progress Indicators     # Loading animations
+│   └── Results Display         # Table and image rendering
+│
 ├── requirements.txt            # Python dependencies
-├── .env                        # Environment variables (create this)
-├── knowledge_base.db           # SQLite database (generated)
-├── auth.json                   # Discourse auth state (generated)
-├── markdown_files/             # Scraped course content (generated)
-├── downloaded_threads/         # Scraped forum posts (generated)
-└── README.md                   # This file
+├── Dockerfile                  # Container configuration
+├── entrypoint.sh              # Container startup script
+├── Procfile                   # Railway/Heroku deployment
+├── runtime.txt                # Python version specification
+├── .env                       # Environment variables (create this)
+├── DEPLOYMENT_GUIDE.md        # Detailed deployment instructions
+├── LICENSE                    # MIT License
+└── README.md                  # This file
 ```
 
 ---
 
-##  Use Cases
+## 🛠️ Troubleshooting
 
-- **Virtual Teaching Assistant**: Automated Q&A for online courses
-- **Documentation Search**: Semantic search over technical documentation
-- **Forum Knowledge Base**: Extracting insights from community discussions
-- **Student Support**: 24/7 instant answers to common questions
-- **Course Analytics**: Understanding common pain points from forum data
+### Common Issues
+
+**API Key Errors**
+```
+Error: "All models/keys failed"
+```
+**Solution**: 
+- Verify keys in `.env` file
+- Check key validity at [Google AI Studio](https://aistudio.google.com)
+- Ensure keys have sufficient quota
+
+---
+
+**Timeout Errors**
+```
+Error: "Processing timeout"
+```
+**Solution**:
+- Increase `LLM_TIMEOUT_SECONDS` in `.env`
+- Simplify questions or reduce dataset size
+- Check `/summary` endpoint for system health
 
 ---
 
-##  Future Enhancements
-
-- [ ] **Vector Database**: Migrate to Pinecone/Weaviate for scale
-- [ ] **Hybrid Search**: Combine semantic + keyword search
-- [ ] **Query Expansion**: Automatic query reformulation
-- [ ] **Caching Layer**: Redis for frequently asked questions
-- [ ] **User Feedback Loop**: Rating system for answer quality
-- [ ] **Advanced Chunking**: Implement semantic chunking with LangChain
-- [ ] **Multi-language Support**: Handle non-English content
-- [ ] **Real-time Updates**: Incremental scraping and indexing
+**Import Errors**
+```
+ModuleNotFoundError: No module named 'langchain'
+```
+**Solution**:
+```bash
+pip install -r requirements.txt
+```
 
 ---
+
+**Port Already in Use**
+```
+Error: [Errno 48] Address already in use
+```
+**Solution**:
+```bash
+# Find and kill process
+lsof -ti:8000 | xargs kill -9
+
+# Or use different port
+uvicorn app:app --port 8080
+```
+
+---
+
+### Debug Mode
+
+Enable verbose logging by setting log level:
+
+```python
+# In app.py
+import logging
+logging.basicConfig(level=logging.DEBUG)
+```
+
+Or set environment variable:
+```bash
+export LOG_LEVEL=DEBUG
+python app.py
+```
+
+---
+
+## 🎓 Use Cases
+
+- **Educational Data Analysis**: Teaching data science without coding barriers
+- **Business Intelligence**: Ad-hoc analysis for non-technical stakeholders
+- **Research Assistance**: Quick exploratory data analysis
+- **Automated Reporting**: Scheduled analysis with natural language queries
+- **Prototyping**: Rapid data exploration and hypothesis testing
+
+---
+
+## 🚧 Future Enhancements
+
+- [ ] **Multi-LLM Support**: Add OpenAI, Anthropic, Cohere providers
+- [ ] **Vector Database**: Integrate Pinecone/Weaviate for large datasets
+- [ ] **Streaming Responses**: WebSocket support for real-time progress
+- [ ] **Query History**: Store and retrieve past analyses
+- [ ] **Advanced Caching**: Redis layer for frequently asked questions
+- [ ] **Collaborative Features**: Multi-user sessions and shared workspaces
+- [ ] **Custom Functions**: User-defined Python functions in sandbox
+- [ ] **Data Validation**: Automatic data quality checks and suggestions
+- [ ] **Export Formats**: PDF, PowerPoint, and Word report generation
+- [ ] **Scheduled Analysis**: Cron-based automated reports
+- [ ] **Authentication**: User accounts and API key management
+- [ ] **Rate Limiting**: Per-user quotas and request throttling
+
+
 
 
 </div>
